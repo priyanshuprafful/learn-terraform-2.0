@@ -74,6 +74,11 @@ resource "aws_security_group" "sg" {
 }
 variable "name" {}
 
+provider "aws" {
+  region = "us-east-1"
+}
+
+
 # output "public_ip" {
 #   value = aws_instance.web.public_ip
 # }
