@@ -37,7 +37,7 @@ resource "aws_instance" "web" {
 
 resource "aws_route53_record" "dns_record" {
   zone_id = "Z0465086RMHEURU6S6M8"
-  name = "${var.name}-dev.devopspro.fun"
+  name = "${var.name}-dev"
   type = "A"
   ttl = 30
   records = [aws_instance.web.private_ip]
