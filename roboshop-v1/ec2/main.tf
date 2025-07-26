@@ -3,12 +3,13 @@ terraform {
     aws = {
       source  = "hashicorp/aws"
       version = "5.81.0"
+
     }
   }
 }
 resource "aws_instance" "web" {
 
-  ami = "data.aws_ami.centos8.id"
+  ami = data.aws_ami.centos8.id
   instance_type = "t3.small"
   vpc_security_group_ids = [aws_security_group.sg.id]
 
