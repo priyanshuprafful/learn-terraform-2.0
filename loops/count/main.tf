@@ -13,7 +13,7 @@ resource "aws_instance" "roboshop" {
   instance_type = "t3.micro"
 
   tags = {
-    Name = "Simple Instance"
+    Name = "${count.index}"
   }
 }
 
