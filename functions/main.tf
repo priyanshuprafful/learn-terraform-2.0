@@ -25,3 +25,11 @@ output "devops_topics" {
 output "aws_topics" {
   value = lookup(lookup(var.classes, "aws", null), "topics" , "topics not found - this is null value" )
 }
+
+variable "fruits" {
+  default = ["apple", "pineapple", "orange"]
+}
+
+output "fruit_4" {
+  value = element(var.fruits, 4)
+}
