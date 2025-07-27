@@ -13,10 +13,10 @@ resource "aws_instance" "roboshop" {
   instance_type = "t3.micro"
 
   tags = {
-    Name = "${count.index}"
+    Name = element(var.instances, count.index)
   }
 }
-
+# Name = "${count.index}" this will give 0 , 1 , 2 as instance name
 data "aws_ami" "example" {
 
   owners = ["973714476881"]
