@@ -33,3 +33,6 @@ variable "fruits" {
 output "fruit_4" {
   value = element(var.fruits, 4)
 }
+
+# element is to pickup value from list
+# lookup is to pickup value from the map
