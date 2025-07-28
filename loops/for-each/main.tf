@@ -2,7 +2,7 @@ resource "aws_instance" "roboshop" {
 
   for_each = var.instances
   ami = data.aws_ami.example.id
-  instance_type = "t3.micro"
+  instance_type = each.value["instance_type"]
 
   tags = {
     Name = each.value["name"]
