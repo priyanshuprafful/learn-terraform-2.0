@@ -5,7 +5,7 @@ resource "aws_instance" "roboshop" {
   instance_type = "t3.micro"
 
   tags = {
-    Name = each.key["name"] 
+    Name = each.value["name"]
   }
 }
 # Name = "${count.index}" this will give 0 , 1 , 2 as instance name
