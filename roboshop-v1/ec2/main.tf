@@ -5,6 +5,10 @@ terraform {
       version = "5.81.0"
 
     }
+    null = {
+      source  = "hashicorp/null"
+      version = "3.2.3"
+    }
   }
 }
 resource "aws_instance" "web" {
@@ -17,13 +21,18 @@ resource "aws_instance" "web" {
     Name = var.name
   }
 
+}
+
+resource "null_resource" "ansible_tasks" {
+
+  depends_on = [aws_instance.web , aws_route53_record.dns_record]
   provisioner "remote-exec" {
 
     connection {
       type = "ssh"
       user = "centos"
       password = "DevOps321"
-      host = self.public_ip
+      host = aws_instance.web.public_ip
     }
     inline = [
 
@@ -32,7 +41,6 @@ resource "aws_instance" "web" {
 
     ]
   }
-
 }
 
 resource "aws_route53_record" "dns_record" {
