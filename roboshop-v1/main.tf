@@ -1,4 +1,4 @@
-module "frontend" {
+module "instances" {
 
   for_each = var.instances
   source = "./ec2"
