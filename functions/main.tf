@@ -45,7 +45,7 @@ variable "a" {
 }
 
 output "a" {
-  value = var.a > 100 ? "Surplus Quantity" : "Less Quantity"
+  value = var.a > 69 ? "Surplus Quantity" : "Less Quantity"
 }
 
 # element is to pickup value from list
