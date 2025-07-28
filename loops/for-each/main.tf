@@ -2,8 +2,8 @@ resource "aws_instance" "roboshop" {
 
   for_each = var.instances
   ami = data.aws_ami.example.id
-  instance_type = each.value["instance_type"]
-
+  # instance_type = each.value["instance_type"]
+  instance_type = lookup(each.value, "instance_type", "t2.micro")
   tags = {
     Name = each.value["name"]
   }
