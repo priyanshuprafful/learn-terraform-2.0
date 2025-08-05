@@ -9,3 +9,4 @@ terraform {
 output "demo" {
   value = "Hello All"
 }
+
